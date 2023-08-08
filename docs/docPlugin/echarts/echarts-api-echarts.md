@@ -13,7 +13,7 @@ title: 'ECharts-API'
 ## init
   <small>`Function`</small>
 
-  創建一個 `ECharts 實例`，返回 [`echartsInstance`](echarts-api-echartsinstance)，<br>
+  創建一個 `ECharts 實例`，返回 [`echartsInstance`](./echarts-api-echartsInstance.md)，<br>
   不能在單個容器上初始化多個 `ECharts 實例`。
 
   ::: details 相關參數
@@ -36,7 +36,7 @@ title: 'ECharts-API'
     - ##### `dom`
       實例容器，一般是一個具有高寬的 `DIV` 元素。在 `Vue` 中，可使用 `ref 元素節點`。只有在設置 `opts.ssr` 開啟了服務端渲染後，該參數才是可選。
     - ##### `theme`
-      應用的主題，可以是一個主題的配置對象，也可以使用已經通過 [`echarts.registerTheme`]() 註冊的主題名稱。
+      應用的主題，可以是一個主題的配置對象，也可以使用已經通過 `echarts.registerTheme` 註冊的主題名稱。
     - ##### `opts`
       附加參數。有下面幾個可選項：
       - ###### `devicePixelRatio`
