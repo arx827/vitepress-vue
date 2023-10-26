@@ -5,7 +5,7 @@ import { head, nav, sidebar } from './configs'
 // 主題 配置
 const themeConfig = {
   logo: '/apple-touch-icon.png',
-  siteTitle: 'Vue 閱讀筆記',
+  siteTitle: '前端 閱讀筆記',
   
   nav,
   sidebar,
@@ -26,7 +26,7 @@ const markdown = {
 export default defineConfig({
   base: '/vitepress-vue/',   // 站點將部署在這個 base URL路徑
   lang: 'zh-TW',
-  title: 'Vue',
+  title: '前端',
   description: '閱讀筆記',
   head,
   themeConfig,

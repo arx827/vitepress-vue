@@ -2,7 +2,7 @@
 layout: home
 title: 首頁
 hero:
-  name: Vue
+  name: 前端
   text: 學習筆記
   # tagline: 
   image:
@@ -16,13 +16,19 @@ hero:
   #     text: View on GitHub
   #     link: https://github.com/vuejs/vitepress
 features:
-  - title: vue2.x 轉 vue3.x
-    details: 
+  - title: Vue
+    details: vue2.x 轉 vue3.x
     link: /docVue/vue2_to_vue3
-  - title: Echarts
-    details: 資料視覺化工具
-    link: /docPlugin/echarts/echarts
-  - title: Vxe-table
-    details: 表格
+  
+  - title: 工具 - 表格
+    details: Vxe-table
     link: /docPlugin/vxe-table/vxe-table
+
+  - title: 工具 - 資料視覺化
+    details: Echarts
+    link: /docPlugin/echarts/echarts
+
+  - title: TypeScript
+    details: 
+    link: /docTypeScript/typeScript-1
 ---
