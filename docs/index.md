@@ -24,5 +24,5 @@ features:
     link: /docPlugin/echarts/echarts
   - title: Vxe-table
     details: 表格
-    link: 
+    link: /docPlugin/vxe-table/vxe-table
 ---

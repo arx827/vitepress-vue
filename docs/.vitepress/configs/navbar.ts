@@ -29,8 +29,8 @@ export const nav = [
         text: '表格',
         items: [
           {
-            text: 'Vxe-table',
-            link: '/docPlugin/vxe-table'
+            text: 'vxe-table V4.5 +',
+            link: '/docPlugin/vxe-table/vxe-table'
           },
         ]
       },

@@ -45,7 +45,28 @@ export const sidebar = {
     {
       text: '表格',
       items: [
-        { text: '附錄一：JDK安裝', link: '/guide/edu/appendix_1' },
+        {
+          text: 'vxe-table V4.5 +',
+          items: [
+            { text: '開發指南', link: '/docPlugin/vxe-table/vxe-table' },
+            { text: '功能組件', link: '/docPlugin/vxe-table/vxe-table-module' },
+            { text: '表單', link: '/docPlugin/vxe-table/vxe-table-form' },
+            { text: '基礎表格', link: '/docPlugin/vxe-table/vxe-table-basic' },
+            { text: '複雜表格', link: '/docPlugin/vxe-table/vxe-table-advanced' },
+            { text: '樹形表格', link: '/docPlugin/vxe-table/vxe-table-tree' },
+            { text: '編輯表格', link: '/docPlugin/vxe-table/vxe-table-edit' },
+            { text: '高級表格', link: '/docPlugin/vxe-table/vxe-table-grid' },
+            { text: '虛擬滾動', link: '/docPlugin/vxe-table/vxe-table-scroll' },
+            { text: '(擴展)插件庫', link: '/docPlugin/vxe-table/vxe-table-other4' },
+            { text: '(全域)格式化', link: '/docPlugin/vxe-table/vxe-table-formats' },
+            { text: '(全域)指令註冊', link: '/docPlugin/vxe-table/vxe-table-commands' },
+            { text: '(全域)右鍵選單', link: '/docPlugin/vxe-table/vxe-table-menus' },
+            { text: '(全域)校驗器', link: '/docPlugin/vxe-table/vxe-table-validators' },
+            { text: '(高級用法)渲染器', link: '/docPlugin/vxe-table/vxe-table-renderer' },
+            { text: '(高級用法)事件攔截', link: '/docPlugin/vxe-table/vxe-table-interceptor' },
+            { text: 'API', link: '/docPlugin/vxe-table/vxe-table-api' },
+          ]
+        },
       ]
     },
   ],
