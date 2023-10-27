@@ -77,7 +77,7 @@ export const sidebar = {
         {
           text: '第一篇 TypeScript 入門準備',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: '01 你的第一個 TypeScript 應用程式', link: '/docTypeScript/typeScript-1' },
             { text: '02 認識 TypeScript 及 本書內容', link: '/docTypeScript/typeScript-2' },
@@ -117,6 +117,14 @@ export const sidebar = {
             { text: '22 打造 Vue.js 網路應用程式(下)', link: '/docTypeScript/typeScript-22' },
           ]
         },
+        {
+          text: '電子書',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            { text: '打造 Svelte 網路應用程式', link: '/docTypeScript/typeScript-e-book' },
+          ]
+        }
       ]
     }
   ]
