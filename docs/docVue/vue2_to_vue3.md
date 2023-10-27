@@ -509,7 +509,7 @@ title: Vue3 - vue2.x 轉 vue3.x
         ```
       :::
 
-    - `add` env.d.ts
+    - `add` => `env.d.ts`
       :::details env.d.ts
         ```ts
         /// <reference types="vite/client" />
@@ -518,7 +518,7 @@ title: Vue3 - vue2.x 轉 vue3.x
       :::
     
   - ### prettier
-    - `add` .prettierrc.json
+    - `add` => 檔案 `.prettierrc.json`
       :::details .prettierrc.json
          ```json
         {
