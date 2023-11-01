@@ -88,5 +88,41 @@ title: TypeSctipt 邁向專家之路
   - `rootDir`：TypeScript 原始碼目錄。
 
 ### 1-2-3 新增 TypeScript 程式檔
+  - 在 `todo` 目錄底下創建一個名為 `src` 的子目錄
+  - 在裡面新增 `index.ts` 檔案
+    ```ts
+    // index.ts
+
+    console.clear();
+    console.log("Adam's Todo List");
+    ```
+
+### 1-2-4 編譯程式碼
+  `TypeScript` 程式檔，必須被編譯成 `純 JavaScript` 程式碼，才能在瀏覽器 或 `Node.js` 環境中執行。
+  - 接下來必須切換到專案目錄底下
+  - 在 `todo` 目錄中，輸入 `tsc` 指令， 進行編譯
+    ```sh
+    \todo> tsc
+    ```
+  - 編譯器將根據 `tsconfig.json` 裡的設定，到 `src` 目錄尋找 `TypeScript` 原始碼，然後建立 `dist` 目錄，並將編譯出來的 `JavaScript` 檔案寫入其中。
+  - 進一步查看編譯後的 `index.js` 檔案內容。
+    ```js
+    // index.js
+
+    console.clear();
+    console.log("Adam's Todo List");
+    ```
+
+### 1-2-5 執行程式碼
+  - 要執行編譯好的程式，請在 `todo` 目錄下 的命令列執行下列指令：
+    ```sh
+    \todo> node dist/index.js
+    ```
+  - `node` 指令會啟動 `Node.js` 的 `JavaScript` 執行環境，後面的參數是 要執行的內容之目錄與檔案名稱。
+  - 命令列視窗將被清除乾淨，並顯示『 `Adam's Todo List` 』這行字。
+    ```sh
+    Adam's Todo List
+    ```
 
 ## 1-3 本章總結
+  `TypeScript` 並非完全獨立運作的程式語言，其編譯器實際上會將程式編譯成 `JavaScript`，而最終執行的也是 `JavaScript`。

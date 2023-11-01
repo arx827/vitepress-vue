@@ -29,6 +29,6 @@ features:
     link: /docPlugin/echarts/echarts
 
   - title: TypeScript
-    details: 
+    details: '[旗標] TypeScript 邁向專家之路'
     link: /docTypeScript/typeScript-1
 ---
