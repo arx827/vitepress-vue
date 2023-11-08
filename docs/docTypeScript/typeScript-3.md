@@ -153,11 +153,211 @@ title: TypeSctipt 邁向專家之路
 ### 3-3-3 理解強制轉型
   在 `JavaScript` 中，當算符 (或稱 運算符，比如加減乘除) 被套用到不同型別的值時，`JavaScript` 執行環境會將其中一個轉換為另一個型別的值，這個過程叫做 `強制轉型 (type coercion)`。
 
+  在 `JavaScript` 語法中，雙等號 `==` 表示進行的是 `一般相等比較 (abstract equality comparison)`，它會先將李個變數的值轉換為相同的型別，好產生有意義的比較結果。
+
+  而第二次的型別轉換，則發生在兩個變數相加時，
+  ```ts
+  let totalPrice = hatPrice + bootsPrice;
+  ```
+  相加算符 `+` 被用來相加一個數值與一個字串，兩者型別不同，因此其中一方會被強制轉型。
+
+### 3-3-4 避免無意間的強制轉型
+  強制轉型，很容易無意間引發它，特別是沒意識到要運算的變數已經被指派新值、導致型別已經改變。`TypeScript` 能確保只有明確要求轉換型別時，才會轉型。
+
+### 3-3-5 活用強制轉型
+  其實只要善加利用強制轉型，也能當成一種實用的工作。
+
+  例如：`OR 邏輯算符 ||`，會將值的型別強制轉換為布林值，而 `0`、`空字串`、`null` 或 `undefined` 之類的值，會被轉成 `false`。其餘的值則會轉成 `true`。
+
 ## 3-4 運用函式
+### 3-4-1 函式參數的型別
+  `JavaScript` 能夠彈性推論型別的特質，包含 `函式(function)`。
+
+  函式可用來放置會重複使用的程式碼，以利簡化程式。可以定義若干 `參數 (parameter)`，並用 `return` 關鍵字傳回一個值。
+
+  在 `JavaScript` 中，宣告函式的方式有兩種：
+  ```js
+  // 函式敘述
+  function foo(param1, param2) {
+    return param1 + param2
+  }
+
+  // 函式運算式 (指派函式給變數名稱)
+  let foo = function(param1, param2) {
+    return param1 + param2;
+  }
+
+  let t = foo(n1, n2);    // 呼叫函式並接收傳回值
+  ```
+
+  要注意用 `函式敘述` 建立的函式，可以在程式的任何位置 (包括函式宣告處前面) 呼叫，
+  但用 `函式運算式` 建立的函式，就只能在宣告之後呼叫。
+  
+### 3-4-2 函式傳回值的型別
+  `JavaScript` 這種有別于其他語言的型別機制，在操作函式時，會變得更明顯，因為函式運算結果的型別，也可能會受到該函式的引數影響。
+
+  ```js
+  let hatPrice = 100;
+  console.log(`Hat price：${hatPrice}`);
+  let bootsPrice = "100";
+  console.log(`Boots price：${bootsPrice}`);
+
+  function sumPrices(first, second, third) {
+    return first + second + third;
+  }
+
+  let totalPrice = sumPrices(hatPrice, bootsPrice);
+  console.log(`Total：${totalPrice}, ${typeof totalPrice}`);
+  totalPrice = sumPrices(100, 200, 300);
+  console.log(`Total：${totalPrice}, ${typeof totalPrice}`);
+  totalPrice = sumPrices(100, 200);
+  console.log(`Total：${totalPrice}, ${typeof totalPrice}`);
+  ```
+
+  ```sh
+  Hat price：100
+  Boots price：100
+  Total：100100undefined, string
+  Total：600, number
+  Total：NaN, number
+  ```
+
+### 3-4-3 避免引數跟參數數量不符的問題
+  利用 `JavaScript` 本身的功能，來規避上述的狀況。首先，可指定參數預設值，參數若沒有收到對應引數，就會套用預設值。
+
+  ```js
+  let hatPrice = 100;
+  console.log(`Hat price：${hatPrice}`);
+  let bootsPrice = "100";
+  console.log(`Boots price：${bootsPrice}`);
+
+  function sumPrices(first, second, third = 0) {
+    return first + second + third;
+  }
+
+  let totalPrice = sumPrices(hatPrice, bootsPrice);
+  console.log(`Total：${totalPrice}, ${typeof totalPrice}`);
+  totalPrice = sumPrices(100, 200, 300);
+  console.log(`Total：${totalPrice}, ${typeof totalPrice}`);
+  totalPrice = sumPrices(100, 200);
+  console.log(`Total：${totalPrice}, ${typeof totalPrice}`);
+  ```
+
+  ```sh
+  Hat price：100
+  Boots price：100
+  Total：1001000, string        # 第三個參數變成 0
+  Total：600, number
+  Total：300, number
+  ```
+
+  現在 `sumPrices()` 第三個參數 `third` 後面用等號指定一個預設值。呼叫函式若該參數缺少對應的引數，`JavaScript` 便會採用該預設值。
+
+  另外一種更具彈性的作法是在函式使用『 `其餘參數 (rest parameter)` 』，或者數量不定的參數。『 `其餘參數` 』的語法必須以連續 `三個句點 (...)` 當開頭，而且它只能作為函式的最後一個參數。
+
+  ```js
+  let hatPrice = 100;
+  console.log(`Hat price：${hatPrice}`);
+  let bootsPrice = "100";
+  console.log(`Boots price：${bootsPrice}`);
+
+  function sumPrices(...numbers) {
+    return numbers.reduce(
+      function (total, val) {
+        return total + val
+      }
+    );
+  }
+
+  let totalPrice = sumPrices(hatPrice, bootsPrice);
+  console.log(`Total：${totalPrice}, ${typeof totalPrice}`);
+  totalPrice = sumPrices(100, 200, 300);
+  console.log(`Total：${totalPrice}, ${typeof totalPrice}`);
+  totalPrice = sumPrices(100, 200);
+  console.log(`Total：${totalPrice}, ${typeof totalPrice}`);
+  ```
+
+  『 `其餘參數` 』會是個 `陣列(array)`，其元素為傳入函數的引數，數量不定。
+
+### 3-4-4 使用箭頭函式
+  `箭頭函式 (arrow function)` 是另一種定義函式的精簡寫法。
+  ```js
+  // ... 上略
+
+  // 把 sumPrices 也改成箭頭函式
+  let sumPrices = (...number) => numbers.reduce(
+    (total, val) => total + (Number.isNaN(Number(val)) ? 0 : Number(val))
+  );
+  ```
 
 ## 3-5 陣列的運用
+### 3-5-1 宣告與使用陣列
+  `JavaScript` 的陣列與其他程式語言相似，差別在於陣列大小可以彈性調整，並且可以存放任何種類的值，意味著元素不必是單一型別。
+
+  ```js
+  let names = ["Hat", "Boots", "Gloves"];    // 用初始值建立陣列
+  let prices = [];    // 建立空陣列
+  prices.push(100);   // 用 push()方法在 prices 陣列加入新元素
+  prices.push("100");
+  prices.push(50.25);
+
+  // 讀出兩個陣列的第一個元素 (索引 0)
+  console.log(`First Item: ${names[0]}：${prices[0]}`);
+
+  let sumPrices = (...number) => number.reduce((total, val) => total + (Number.isNaN(Number(val)) ? 0 : Number));
+  let totalPrice = sumPrices(...prices);
+  console.log(`Total: ${totalPrice} ${typeof totalPrice}`);
+  ```
+
+  宣告陣列時，並不需要明確定義陣列大小，它會隨著元素的新增或移除而自動分配記憶體空間。
+
+### 3-5-2 在陣列使用展開算符
+  『 `展開算符 (spread operator)` 』，可用來展開陣列的內容，讓這些元素全部變成呼叫函式時傳入的個別引數。
+
+  ```js
+  let totalPrice = sumPrices(...prices);
+  // 相當於呼叫 sumPrices(prices[0], prices[1], prices[2], ...)
+  ```
 
 ## 3-6 物件的運用
+### 3-6-1 建立和使用物件
+  `JavaScript` 物件是多個 `屬性 (property)` 的集合，每個屬性 (物件的變數) 有各自的名稱與值。
+
+  ```js
+  let hat = {
+    name: "Hat",    // 屬性 name
+    price: 100      // 屬性 price
+  }
+  ```
+
+### 3-6-2 物件屬性的增刪與變更
+  ```js
+  let gloves = {        // 宣告 gloves 物件
+    productName: "Gloves",
+    price: "40"
+  };
+
+  gloves.name = gloves.productName;     // 在 gloves 建立屬性 name;
+  delete gloves.productName;            // 刪除 gloves 的屬性 productName;
+  gloves.price = 20;                    // 修改 gloves 的屬性 price
+  ```
+
+### 3-6-3 預防未定義的物件與屬性
+  為了確保程式碼必定能獲得可運算的值，可以透過強制型別轉換和 OR 邏輯算符 來留下後備值。
+
+  ```js
+  let hat = {
+    name: "Hat",
+    price: 100,
+  };
+  let propertyCheck = hat.price || 0;
+  let objectAndPropertyCheck = (hat || {}).price || 0;
+  console.log(`Checks: ${propertyCheck}, ${objectAndPropertyCheck}`);
+
+  // Checks: 100, 100
+  ```
+
+### 3-6-4 在物件使用『 展開 』與『 其餘 』算符
 
 ## 3-7 了解 this 關鍵字
 
