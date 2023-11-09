@@ -358,7 +358,170 @@ title: TypeSctipt 邁向專家之路
   ```
 
 ### 3-6-4 在物件使用『 展開 』與『 其餘 』算符
+  ```js
+  let hat = {
+    name: 'Hat',
+    price: 100
+  }
+
+  let otherHat = { ...hat };
+  console.log(`otherHat: ${otherHat.name}, ${otherHat.price}`);
+  ```
+
+  `hat` 物件 配合『 `展開算符` 』，把它的屬性與值解開到 {} 物件字面表示法中，等於將 `hat` 物件內容複製到新的 `otherHat` 物件。
+
+  以展開算符拆開的屬性名稱和值，並且在新物件加入額外的屬性。
+  ```js
+  let additionalProperties = { ...hat, discounted: true;}
+  ```
+
+  新的 `discounted` 屬性 (值為 `true`) 會連同 `hat` 物件原有的屬性，放入 `additionalProperties`。
+
+  如果，一個屬性在物件字面表示法裡有重複定義，右邊的定義會蓋過左邊的。
+  ```js
+  let replacedProperties = { ...hat, price: 10};
+  ```
+
+  最後，也能在物件字面表示法用『 `其餘算符` 』(跟展開算符一樣都是 ... 三個半形句點)來過濾屬性。
+  ```js
+  let { price, ...someProperties} = hat;
+  ```
+
+### 3-6-5 屬性 getter 與 setter 的定義
+  如果希望使用者在存取物件屬性時，程式能對這些動作做些控管，則可考慮使用 `getter` 和 `settter`。
+
+  ```js
+  let hat = {
+    name: "Hat",
+    _price: 100,
+    priceIncTax: 100 * 1.2,
+    set price(newPrice) {   // price 的 setter
+      this._price = newPrice;   // 用 this 來存取 hat 物件自身
+      this.priceIncTax = this._price * 1.2;
+    },
+    get price() {   // price 的 getter
+      return this._price;
+    }
+  };
+
+  console.log(`Hat: ${hat.price}, ${hat.priceIncTax}`);
+  hat.price = 120;
+  console.log(`Hat: ${hat.price}, ${hat.priceIncTax}`);
+  ```
+
+  `JavaScript` 將關鍵字 `set` 與 `get` 綁定的函式名稱視為屬性，因此不能再將該名稱定義為屬性。以 `set` 建立的函式稱為 `setter`，`get` 函式則叫做 `getter`。
+
+  #### JavaScript 物件的私有屬性
+  在以上範例中，使用 `_price` 這種名稱，加上底線的方式來『 `模擬` 』私有屬性，而 `getter/setter` 就能用來扮演屬性的操作介面，並在必要時做些控管。
+
+### 3-6-6 物件方法的定義
+  ```js
+  let hat = {
+    name: "Hat",
+    ...
+    writeDetails: function() {    // 定義方法
+      console.log(`${this.name}： ${this.price}, ${this.priceInded}`);
+    }
+  }
+  ```
+  就其本質而言，方法也是物件的一個屬性。
+  新的寫法省去了 `function` 關鍵字建立的，但從 `ES2015/ES6` 之後，可以用底下更簡潔的語法來宣告方法：
+  ```js
+  let hat = {
+    ...
+    writeDetails() {
+      console.log(`${this.name}： ${this.price}, ${this.priceInded}`);
+    }
+  }
+  ```
 
 ## 3-7 了解 this 關鍵字
+### 3-7-1 傳回 undefined 的 this
+  ```js
+  let hat = {
+    name: "Hat",
+    _price: 100,
+    priceIncTax: 100 * 12,
+    set price(newPrice) {
+      this._price = newPrice;
+      this.priceIncTax = this._price * 1.2;
+    },
+    get price() {
+      return this._price;
+    },
+    writeDetails: () => console.log(`${this.name}: ${this.price}, ${this.priceIncTax}`)
+  };
+
+  hat.writeDetails();
+
+  // 執行結果 undefined: undefined, undefined
+  ```
+
+### 3-7-2 了解獨立函式中的 this 如何作用
+  可以在任何函式中，使用 `this` 關鍵字，即使該函式並沒有被當成物件方法使用。
+
+  ```js
+  function writeMessage(message) {
+    console.log(`${this.greetng}, ${message}`);
+  }
+
+  greeting = "Hello";
+  writeMessage("It is sunny today");
+  ```
+
+  `JavaScript` 中其實定義了一個 `全域物件 (global object)`，在程式的任何地方都能存取。
+  若在 `JavaScript` 定義變數時，沒有使用 `let`、`const` 或 `var` 等關鍵字，就會被存入全域物件。
+
+  在一般函式中，`this` 關鍵字，並非指向函式物件本身，而會指向全域物件。
+
+  全域物件的變數名稱 也會因執行環境而異。在 `Node.js` 執行環境下會叫做 `global`，而 `瀏覽器環境`，則是 `window` 或 `self`。
+
+  > `ES2020` 起，可以使用 `globalThis` 關鍵字，它會根據執行環境，自動指向對應的全域物件。
+
+### 3-7-3 了解物件方法中的 this 關鍵字如何作用
+  對於物件方法，`this` 關鍵字則會指向該物件本身。
+
+  ```js
+  let myObject = {
+    greeting: "Hi, there",
+    writeMessage(message) {
+      console.log(`${this.greeting}, ${message}`);
+    }
+  }
+
+  myObject.writeMessage("It is sunny today");
+  ```
+
+  之所以會有這種行為差異，是因為當函式是透過物件呼叫 (當成方法執行) 時，`JavaScript` 會呼叫該函式的 `call()` 方法，並將物件指派給 `this`。
+  ```js
+  myObject.writeMessage.call(myObject, "It is sunny today");
+  ```
+
+### 3-7-4 改變 this 關鍵字的行為
+  若想更安全掌握 `this` 的值，作法之一是改用 `call()` 方法來呼叫函式，但這樣在每次呼叫函式時都很麻煩，還要多傳入一個物件給 `this`。
+
+  更可靠的方式是透過函式的 `bind()` 方法來指定 `this` 的值，這樣不論函式是在哪裡被呼叫，`this` 都會指向該值。
+
+  ```js
+  let myObject = {
+    greeting: "Hi, there",
+    writeMessage(message) {
+      console.log(`${this.greeting}, ${message}`);
+    }
+  }
+
+  // 指定傳入 myObject 給 this
+  myObject.writeMessage = myObject.writeMessage.bind(myObject);
+
+  myObject.writeMessage("It is sunny today");
+  ```
+
+  `bind()` 方法，實際上會傳回一個新函式，而該函式被呼叫時，`this` 的值將保持一致。
+
+  但使用 `bind()` 的麻煩在於，必須等物件被建立出來了，才有辦法把它設為 `this`，迫使整個操作流程得分成兩階段：首先建立物件，然後才能呼叫 `bind()` 來取代每個需要讓 `this` 值保持一致的物件方法。
+
+### 3-7-5 了解箭頭函式中的 this 關鍵字作用
+  箭頭函式的運作方式其實與一般函式不同。箭頭函式 `沒有` 自己的 `this` 值，而是在執行時，去繼承最靠近範圍的 `this` 值。
 
 ## 3-8 本章總結
+  本章介紹了 `JavaScript` 型別系統、函式及物件的基礎。
