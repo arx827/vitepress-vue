@@ -2,3 +2,5 @@ node_modules
 .temp
 .cache
 package-lock.json
+
+/docs/docTypeScript/F1485/**

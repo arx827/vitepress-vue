@@ -6,6 +6,8 @@ title: TypeSctipt 邁向專家之路
 ---
 # 01 你的第一個 TypeScript 應用程式
 
+[範例檔案](https://www.flag.com.tw/bk/st/F1485)
+
 ## 1-1 本書行前準備
 ### 1-1-1 安裝 Node.js
   - [Nodejs 官網](https://nodejs.org/en)
