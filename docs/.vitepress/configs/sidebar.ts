@@ -127,5 +127,24 @@ export const sidebar = {
         }
       ]
     }
+  ],
+  '/docNodejs/hahow/': [
+    {
+      text: 'Node.js、MongoDB 網站後端工程入門',
+      items: [
+        {
+          text: '課程連結',
+          link: 'https://hahow.in/courses/60aeac37bca91777bf5bb114/discussions?item=60d37e07638ed0acdd8c5c40'
+        },
+        {
+          text: '第一章 課前準備',
+          link: '/docNodejs/hahow/nodejs-1',
+        },
+        {
+          text: '第二章 Node.js 基礎',
+          link: '/docNodejs/hahow/nodejs-2',
+        }
+      ]
+    }
   ]
 }
