@@ -37,6 +37,6 @@ features:
     link: /docTypeScript/typeScript-1
   
   - title: Node.js
-    details: 
-    link: /docNodejs/nodejs-1
+    details: '[Hahow] 彭彭 - Node.js、MongoDB 網站後端工程入門'
+    link: /docNodejs/hahow/nodejs-1
 ---
