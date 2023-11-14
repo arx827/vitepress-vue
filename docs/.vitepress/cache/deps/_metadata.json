@@ -1,19 +1,29 @@
 {
-  "hash": "8851e537",
-  "browserHash": "d7de9194",
+  "hash": "57fd9d69",
+  "browserHash": "223acd1f",
   "optimized": {
     "vue": {
-      "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "src": "../../../../node_modules/vue/dist/vue.runtime.esm-browser.js",
       "file": "vue.js",
-      "fileHash": "690e101c",
+      "fileHash": "4120086a",
+      "needsInterop": false
+    },
+    "vitepress > @vue/devtools-api": {
+      "src": "../../../../node_modules/@vue/devtools-api/lib/esm/index.js",
+      "file": "vitepress___@vue_devtools-api.js",
+      "fileHash": "a74aeba7",
       "needsInterop": false
     },
     "@theme/index": {
       "src": "../../../../node_modules/vitepress/dist/client/theme-default/index.js",
       "file": "@theme_index.js",
-      "fileHash": "08c36289",
+      "fileHash": "e0f0eedb",
       "needsInterop": false
     }
   },
-  "chunks": {}
+  "chunks": {
+    "chunk-TNURRTOV": {
+      "file": "chunk-TNURRTOV.js"
+    }
+  }
 }

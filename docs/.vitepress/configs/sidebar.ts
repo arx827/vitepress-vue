@@ -245,5 +245,40 @@ export const sidebar = {
         }
       ]
     }
+  ],
+  '/docFubon/project_management/': [
+    {
+      text: '專案管理實戰：搞定難題，讓專案成功的14堂課',
+      items: [
+        {
+          text: '01 緒論：想在職場翻身，必備的專案管理力',
+          link: '/docFubon/project_management/project_management-01'
+        },
+        {
+          text: '02 談能力：培養問題解決力，帶你跨出舒適圈',
+          link: '/docFubon/project_management/project_management-02'
+        },
+        {
+          text: '03 談結盟：非正式協商策略，搞定沒被說出口的考量',
+          link: '/docFubon/project_management/project_management-03'
+        },
+        {
+          text: '04 談需求：雙向對焦，把事情做好又做對',
+          link: '/docFubon/project_management/project_management-04'
+        },
+        {
+          text: '05 談溝通：向上管理你的老闆與客戶',
+          link: '/docFubon/project_management/project_management-05'
+        },
+        {
+          text: '06 談雙贏： 3 個心法讓別人願意跟你合作',
+          link: '/docFubon/project_management/project_management-06'
+        },
+        {
+          text: '07 談執行：建立大局觀，將大目標拆解成小任務',
+          link: '/docFubon/project_management/project_management-07'
+        },
+      ]
+    }
   ]
 }

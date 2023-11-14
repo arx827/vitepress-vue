@@ -50,6 +50,40 @@ title: TypeSctipt 邁向專家之路
   第二行指令呼叫了一個 `toString()` 方法，可是並沒有先幫 `hat` 物件定義 `toString` 屬性。這使得 `JavaScript` 執行環境轉而查看 `hat` 物件上游的原型，也就是 `Object` 物件。
 
 ### 4-2-2 檢視與修改原型物件
+  `JavaScript` 內建的 `Object` 不僅是絕大多數物件的原型，它本身也提供了一些不必繼承便可直接使用的方法，可藉此來取得與原型物件相關的資訊。
+
+  | 方法                    | 說明                 |
+  |-------------------------|---------------------|
+  | `getPrototypeOf()`      | 傳回物件的原型物件     |
+  | `setPrototypeOf(物件)`  | 設定物件的原型物件     |
+  | `getOwnPropertyNames()` | 傳回物件自有屬性的名稱 |
+
+  > 物件的 `Prototype` 屬性也可讓我們存取或修改原型物件，但這麼做對 `JavaScript` 執行環境來說，是沉重的負擔。如果可以的話，建議還是使用上表列出的方法。
+
+  ```js
+  let hat = {
+    name: "Hat",
+    price: 100,
+    getPriceIncTax() {
+      return Number(this.price) * 1.2;
+    }
+  };
+  let boots = {
+    name: "Boots",
+    price: 100,
+    getPriceIncTax() {
+      return Number(this.price) * 1.2;
+    }
+  };
+
+  let hatPrototype = Object.getPrototypeOf(hat);
+  console.log(`Hat Prototype: ${hatPrototype}`);
+  let bootsPrototype = Object.getPrototypeOf(boots);
+  console.log(`Boots Prototype: ${bootsPrototype}`);
+  console.log(`Common prototype: ${hatPrototype === bootsPrototype}`);
+  ```
+
+  結果顯示 `hat` 與 `boots` 物件共想著同一個原型物件(`Object 物件`)。
 
 
 ## 4-3 在 JavaScript 使用類別 (class)
