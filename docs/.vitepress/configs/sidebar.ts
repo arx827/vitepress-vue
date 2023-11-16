@@ -278,6 +278,34 @@ export const sidebar = {
           text: '07 談執行：建立大局觀，將大目標拆解成小任務',
           link: '/docFubon/project_management/project_management-07'
         },
+        {
+          text: '08 談績效： 3 個目標設定心法，讓員工更當責',
+          link: '/docFubon/project_management/project_management-08'
+        },
+        {
+          text: '09 談金錢：爭取與排序，破除專案資源限制',
+          link: '/docFubon/project_management/project_management-09'
+        },
+        {
+          text: '10 談綜效：雙軌槓桿效應，用5分力氣做到10分成果',
+          link: '/docFubon/project_management/project_management-10'
+        },
+        {
+          text: '11 談時間：15 分鐘高效管理術從此專案不 Delay',
+          link: '/docFubon/project_management/project_management-11'
+        },
+        {
+          text: '12 談風險：盤點、決策、控管及改善 4 步驟有效化解危機',
+          link: '/docFubon/project_management/project_management-12'
+        },
+        {
+          text: '13 談創新：3 個練習帶你跳脫框架，超越期待',
+          link: '/docFubon/project_management/project_management-13'
+        },
+        {
+          text: '14 談突圍：培養逆境智商，到哪都能發光',
+          link: '/docFubon/project_management/project_management-14'
+        },
       ]
     }
   ]
