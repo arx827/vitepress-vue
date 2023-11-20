@@ -2,6 +2,11 @@
 title: 01 緒論：想在職場翻身，必備的專案管理力
 ---
 
+# 專案管理實戰：搞定難題，讓專案成功的14堂課
+![project_management-00](/public/docFubon/project_management/project_management-00.png)
+
+---
+
 # 01 緒論：想在職場翻身，必備的專案管理力
 ---
 
