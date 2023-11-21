@@ -54,15 +54,16 @@ title: '第二章 Node.js 基礎'
     - 在終端機中輸入 `node 檔案名稱` 執行程式
 
   - ### 實作：執行我的第一支程式
-    ```js
-    // index.js
-
-    console.log("Hello Node.js");
-    let x = 3;
-    console.log(x);
-    ```
-
-    - #### 執行程式命令
+    - 新增檔案『 `index.js` 』
+    - 寫入
+      ```js
+      console.log("Hello Node.js")
+      let x = 3;
+      console.log(x);
+      ```
+    - 存擋
+    - 打開終端機
+    - 輸入
       ```sh
       node index.js
       ```
