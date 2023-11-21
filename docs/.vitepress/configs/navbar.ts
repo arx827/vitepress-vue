@@ -64,6 +64,10 @@ export const nav = [
       {
         text: '專案管理實戰',
         link: '/docFubon/project_management/project_management-01'
+      },
+      {
+        text: '清晰思考與分析',
+        link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-01'
       }
     ]
   }

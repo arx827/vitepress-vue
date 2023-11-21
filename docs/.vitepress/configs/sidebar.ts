@@ -308,5 +308,76 @@ export const sidebar = {
         },
       ]
     }
-  ]
+  ],
+  '/docFubon/thinking_And_Analysis/': [
+    {
+      text: '清晰思考與分析',
+      items: [
+        {
+          text: 'CH1 何謂清晰思考',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-01'
+        },
+        {
+          text: 'CH2 問題分析常見方法與基本概念',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-02'
+        },
+        {
+          text: 'CH3 遊戲一：生日問題與直覺判斷',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-03'
+        },
+        {
+          text: 'CH4 遊戲二：吹牛大王和推論假設',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-04'
+        },
+        {
+          text: 'CH5 遊戲三：數列挑戰與確認偏誤',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-05'
+        },
+        {
+          text: 'CH6 遊戲四：各就各位和推論假設',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-06'
+        },
+        {
+          text: 'CH7 清晰思考與問題分析',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-07'
+        },
+        {
+          text: 'CH8 狀況評估-列出威脅與機會',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-08'
+        },
+        {
+          text: 'CH9 狀況評估-清楚釐清顧慮',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-09'
+        },
+        {
+          text: 'CH10 狀況評估-設定優先順序',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-10'
+        },
+        {
+          text: 'CH11 狀況評估-是否需要分析問題',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-11'
+        },
+        {
+          text: 'CH12 問題分析-描述問題',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-12'
+        },
+        {
+          text: 'CH13 問題分析-將問題具體化',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-13'
+        },
+        {
+          text: 'CH14 問題分析-測試可能的原因',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-14'
+        },
+        {
+          text: 'CH15 問題分析-選定最可能的原因',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-15'
+        },
+        {
+          text: 'CH16 問題推理過程的障礙與克服技巧',
+          link: '/docFubon/thinking_And_Analysis/thinking_And_Analysis-16'
+        },
+      ]
+    }
+  ],
 }

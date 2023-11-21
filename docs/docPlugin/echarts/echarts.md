@@ -139,7 +139,7 @@ title: 'ECharts'
   ```
 
 ## 效果
-  ![echarts-1](/public/docPlugin/echarts/echarts-1.png)
+  ![echarts-1](/docPlugin/echarts/echarts-1.png)
 
 ## 相關連結
   - [ECharts 官網](https://echarts.apache.org/zh/index.html)

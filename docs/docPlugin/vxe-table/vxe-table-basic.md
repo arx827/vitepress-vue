@@ -7,7 +7,7 @@ title: 工具 - Vxe-table
   `vxe-table` 基礎表格，以範本方式使用非常簡單、方便
   >（附註：每一列field 欄位屬性不可變更）
 
-  ![vxe-table-basic-1](/public/docPlugin/vxe-table/vxe-table-basic-1.png)
+  ![vxe-table-basic-1](/docPlugin/vxe-table/vxe-table-basic-1.png)
 
   ::: details demo.vue
   ```vue
@@ -59,7 +59,7 @@ title: 工具 - Vxe-table
 
   使用 `row-config.isHover` 屬性啟用 `hover` 行高亮
 
-  ![vxe-table-basic-2](/public/docPlugin/vxe-table/vxe-table-basic-2.png)
+  ![vxe-table-basic-2](/docPlugin/vxe-table/vxe-table-basic-2.png)
 
   ::: details demo.vue
   ```vue
@@ -139,11 +139,11 @@ title: 工具 - Vxe-table
 
 ## 資料格式與字段
   支援多種資料格式：預設標準結構、深層結構、二維數組
-  ![vxe-table-basic-98](/public/docPlugin/vxe-table/vxe-table-basic-98.png)
+  ![vxe-table-basic-98](/docPlugin/vxe-table/vxe-table-basic-98.png)
 
 
 ## 完整功能
-  ![vxe-table-basic-100](/public/docPlugin/vxe-table/vxe-table-basic-100.png)
+  ![vxe-table-basic-100](/docPlugin/vxe-table/vxe-table-basic-100.png)
 
   ::: details demo.vue
   ```vue
