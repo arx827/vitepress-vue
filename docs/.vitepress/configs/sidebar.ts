@@ -242,6 +242,26 @@ export const sidebar = {
         {
           text: '第二章 Node.js 基礎',
           link: '/docNodejs/hahow/nodejs-2',
+        },
+        {
+          text: '第三章 Express 網站開發',
+          link: '/docNodejs/hahow/nodejs-3',
+        },
+        {
+          text: '第四章 網站前後端互動介面',
+          link: '/docNodejs/hahow/nodejs-4',
+        },
+        {
+          text: '第五章 MongoDB 資料庫',
+          link: '/docNodejs/hahow/nodejs-5',
+        },
+        {
+          text: '第六章 會員系統開發，手把手教學',
+          link: '/docNodejs/hahow/nodejs-6',
+        },
+        {
+          text: '第七章 整合式作業引導',
+          link: '/docNodejs/hahow/nodejs-7',
         }
       ]
     }
