@@ -149,6 +149,8 @@ title: TypeSctipt 邁向專家之路
   printMessage(100);    // 傳入型別不正確的引數 (要求字串卻得到數值)
   ```
 
+  範例中的 `printMessage()` 函式對 `msg` 參數加上了型別註記，限制它的參數 `msg` 只能接受 `string(字串)` 資料型別，若將一個數值引數傳給 `msg` 參數，就會讓 `TypeScript` 編譯器跳出錯誤訊息。
+
   ```sh
   tsc
 
@@ -158,7 +160,123 @@ title: TypeSctipt 邁向專家之路
   Found 1 error.
   ```
 
-  為了觸發它重新進行渲染
+  在預設狀況下，即使 `TypeScript` 編譯器遇到錯誤，它仍會繼續生成 `JavaScript` 程式碼。
+
+  可以在 `tsconfig.json` 檔案中將 `noEmitOnError` 設定為 `true`，即可關閉這個行為。
+
+  ```json
+  // \tools\tsconfig.json
+
+  {
+    "compilerOptions": {
+      "target": "es2020",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "noEmitOnError": true
+    }
+  }
+  ```
+
+  如此一來，`TypeScript` 編譯器就只有在完全沒有偵測到錯誤時，才會生成 `JavaScript` 程式碼。
+
+### 5-3-3 使用 watch 模式自動監看並編譯程式碼
+  如果每次改寫程式碼，都得手動執行一次編譯器，應該很快就會感到厭倦。
+
+  `TypeScript` 編譯器支援所謂的 `watch` 模式，它會監看專案的變化，並且在偵測到檔案變更時，自動編譯。
+
+  在 `tools` 根目錄執行以下指令，開啟編譯器的 `watch` 模式
+  ```sh
+  tsc --watch
+  ```
+
+### 5-3-4 在編譯後自動執行
+  `tsc` 編譯器的 `watch` 模式，並不會自動執行編譯完成的程式。
+
+  如果使用的是 `Angular`、`React`、`Vue.js` 等框架來開發專案，`TypeScript` 編譯器會被整合到更大規模的工具鏈當中，也能夠自動執行編譯完成後的程式碼。
+
+  至於獨立專案，則可仰賴一些開源套件來給編譯器加上額外功能，如 `tsc-watch` 套件。
+  `tsc-watch` 套件會以 `watch` 模式啟動編譯器，並根據 `tsc` 的編譯結果來自動執行專案。
+
+  請在 `tools` 目錄下執行以下指令，使用 `npx` 啟動安裝於專案內的 `tsc-watch` 套件
+
+  ```sh
+  npx tsc-watch --onsuccess "node dist/index.js"
+  ```
+
+  `tsc-watch` 會使用安裝在專案內的 `TypeScript` 編譯器來編譯。
+  `--onsuccess` 參數的意思是，若編譯過程沒有錯誤時，就執行後面雙引號間的命令。
+
+  > 若對 `tsc-watch` 的其他控制選項有興趣，可[參閱](https://github.com/gilamran/tsc-watch)
+
+  > `TypeScript` 編譯器亦有提供一套 `API`，可用來創造自訂編譯器。[參考](https://github.com/Microsoft/TypeScript/wiki/Using-the-Compiler-API)
+
+### 5-3-5 以 NPM 啟動自動編譯器
+  可以把指令放進 `package.json` 檔案中的 『`scripts`』項目，能大幅簡化指令。
+
+  ```json
+  // \tools\package.json
+
+  {
+    "name": "tools",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "tsc-watch --onsuccess \"node dist/index.js\""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "tsc-watch": "^4.4.0",
+      "typescript": "^4.3.5"
+    }
+  }
+  ```
+
+  `package.json` 的 `scripts` 區，可用來撰寫一些指令碼，簡化執行工具的過程。儲存變更後，在 `tools` 目錄裡執行下方指令
+  ```sh
+  npm start
+  ```
+
 ## 5-4 設定編譯輸出版本
+### 5-4-1 指定要輸出的 `JavaScript` 版本
+  在開發階段得以運用較新的 `TypeScript` 功能，又能讓編譯出來的程式在較舊的 `JavaScript` 環境執行 (如舊版瀏覽器)。
+
+  `tsconfig.json` 編譯選項中的 `target` 可用來指定編譯器輸出的 `JavaScript` 版本。
+
+  ```json
+  // \tools2\tsconfig.json
+
+  {
+    "compilerOptions": {
+      "target": "es2020",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "noEmitOnError": true,
+    }
+  }
+  ```
+  > `es2020` 便代表編譯目標為 `ES2020` 版的 `JavaScript`。
+  > `ES` 是 `ECMAScript` 的縮寫，近期已改用釋出年份來稱呼。
+
+  下表列出可選擇的版本：
+  | 名稱              | 說明                                                                                                                                                                  |
+  |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  | `es3`             | 輸出符合第3版規範的程式碼 (制定於1999年)，也被視為 `JavaScript` 的最基礎版本。若沒有設定 `target` 屬性，編譯器的預設值就是 `es3`。(第4版被廢棄，沒有推出。)                 |
+  | `es5`             | 輸出符合第5版規範的程式碼 (制定於2009年)，主要重點在於改進一致性、提供嚴格模式、`let` 關鍵字等。                                                                          |
+  | `es6`<br>`es2015` | 輸出 `ES2015/ES6` 版程式碼 (制定於2015年)。這版提出許多新語法，包括類別、模組、箭頭函式與 `Promise` 物件的支援，若要用 `JavaScript` 開發複雜的應用程式，就至少得使用此版本。 |
+  | `es2016`          | 輸出 `ES2016` 程式碼。這個版本替陣列新增 `includes` 方法，並支援 `**` 指數算符。                                                                                         |
+  | `es2017`          | 輸出 `ES2017` 程式碼。新功能包括檢視物件與非同步運算的新關鍵字。                                                                                                        |
+  | `es2018`          | 輸出 `ES2018` 程式碼。新功能包括展開與其餘運算子、字串處理，以及非同步運算的優化。                                                                                        |
+  | `es2019`          | 輸出 `ES2019` 程式碼。新功能包括陣列和`Object` 提供的一些新方法。                                                                                                       |
+  | `es2020`          | 輸出 `ES2020` 程式碼。新功能包括 `BigInt` 型別、零值合併算符和 `globalThis` 關鍵字。                                                                                     |
+  | `es2021`          | 輸出 `ES2021` 程式碼。新功能包括 `replaceAll()` 函式、邏輯指派算符並改良 `ES2020` 的一些功能。                                                                           |
+  | `esNext`          | 採用預定於未來規範版本加入，而安裝的 `TypeScript` 也支援的新功能。注意 `TypeScript` 編譯器支援的新功能，將隨編譯器版本而有所更動，所以得謹慎使用。                         |
+  
+### 5-4-2 設定編譯時要加入的函式庫
+  
+  
 ## 5-5 常用的編譯器設定
 ## 5-6 本章總結
