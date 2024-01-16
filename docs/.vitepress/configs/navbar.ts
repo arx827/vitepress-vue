@@ -7,7 +7,7 @@ export const nav = [
         items: [
           {
             text: 'vue2.x 轉 vue3.x',
-            link: '/docVue/vue2_to_vue3'
+            link: '/pages/docVue/vue2_to_vue3'
           }
         ]
       },
@@ -42,7 +42,16 @@ export const nav = [
   },
   {
     text: 'TypeScript',
-    link: '/docTypeScript/typeScript-1'
+    items: [
+      {
+        text: '[旗標] TypeScript 邁向專家之路',
+        link: '/pages/docTypeScript/expert/typeScript-1'
+      },
+      {
+        text: '[博碩] IT邦 - 讓 TypeScript 成為你全端開發的 ACE !',
+        link: '/pages/docTypeScript/it/partI/typeScript-1'
+      }
+    ]
   },
   {
     text: 'Nodejs',

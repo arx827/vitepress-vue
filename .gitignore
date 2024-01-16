@@ -3,6 +3,6 @@ node_modules
 .cache
 package-lock.json
 
-docs/docTypeScript/F1485/**
+docs/pages/docTypeScript/expert/F1485/**
 
 **/cache/**

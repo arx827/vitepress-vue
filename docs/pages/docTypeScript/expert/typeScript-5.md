@@ -276,7 +276,61 @@ title: TypeSctipt 邁向專家之路
   | `esNext`          | 採用預定於未來規範版本加入，而安裝的 `TypeScript` 也支援的新功能。注意 `TypeScript` 編譯器支援的新功能，將隨編譯器版本而有所更動，所以得謹慎使用。                         |
   
 ### 5-4-2 設定編譯時要加入的函式庫
-  
+  `tsc --listFiles` 指令會列出編譯器找到的檔案清單，其中包含不少型別宣告檔。這些檔案提供編譯器所需的資訊，包括不同版本的 `JavaScript` 所擁有的功能，以及應用程式在瀏覽器環境執行時能夠擁有的功能，這樣程式就得以透過 `DOM (Document Object Model，文件物件模型)` 的 `API` 來生成與管理 `HTML` 網頁內容。
+
+  `TypeScript` 編譯器會根據 `target` 屬性的設定內容，去尋找它需要的型別資訊，因此當使用比指定版本還新的功能時，就會產生錯誤 (編譯器會找不到辦法在舊版 `JavaScript` 產生對應版本)。
+
+  ```ts
+  // \tools2\src\index.ts
+
+  let printMessage = (msg: string): void => console.log(`Message: ${msg}`);
+  let message = ("Hello, TypeScript");
+  printMessage(message);
+
+  let data = new Map();
+  data.set("Bob", "London");
+  data.set("Alice", "Paris");
+  data.forEach((val, key) => console.log(`${key} lives in ${val}`));
+  ```
+
+  `Map` 是 `ES2015` 才加入 `JavaScript` 的功能，它並不存在於我們的組態檔中指定的 `ES5` 版本。因此當儲存這段變更和重新編譯時，編譯器會跳出以下警告訊息，建議將編譯目標改成 `ES2015` 或更晚的版本：
+
+  ```sh
+  \tools2 > tsc
+
+  src/index.ts:5:16 - error TS2583: Cannot find name 'Map'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+  5 let data = new Map();
+                   ~~~
+  Found 1 error.
+  ```
+
+  可用兩種方式解決這個問題。一是把編譯目標改成較新版本的 `JavaScript` (比如錯誤訊息中建議的 `es2015`)，或是在 `compilerOptions` 中透過 `lib` 屬性來改變編譯器要使用的型別宣告檔。`lib` 屬性的值是個陣列，可包含的項目如下表：
+
+  `compilerOptions` 中 `lib` 屬性的選項
+  | 名稱                                     | 說明                                                                                                                                                           |
+  |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+  | `es5`、`es2015`、<br>`es2016`、`es2017`、... | 引入這幾個值所對應之版本的定義。舊的命名法同樣可用，所以 `es6` 亦可寫成 `es2015`。                                                                                |
+  | `esnext`                                 | 引用 `JavaScript` 預定新增、但尚未正式採用的新功能，其實際內容將隨時間而改變。                                                                                    |
+  | `dom`                                    | 引入 `DOM` 文件物件模型的相關定義，`console` 物件也是定義在這裡。網頁應用程式需要依賴它們來操作瀏覽器內的 `HTML` 元素內容。這個設定同樣可用於 `Node.js` 應用程式。 |
+  | `dom.iterable`                           | 引入 `DOM API` 的額外相關定義，讓應用程式能走訪 `HTML` 元素。                                                                                                    |
+  | `scriptHost`                             | 引入 `Windows Script Host` 的相關定義，以便在 `Windows` 系統自動執行程式。                                                                                       |
+  | `webworker`                              | 引入 `web worker` 的相關定義，讓網頁應用程式得以執行背景工作。                                                                                                   |
+
+  也可以透過 `lib` 屬性選擇性地加入特定 `JavaScript` 版本的部分功能。下面列出最常用的部分：
+  `compilerOptions` 中 `lib` 屬性常用的個別版本功能：
+  | 名稱                                         | 說明                                                     |
+  |----------------------------------------------|--------------------------------------------------------|
+  | `es2015.core`                                | 加入 `ES2015` 新增到 `JavaScript` 的主要功能的定義。      |
+  | `es2015.collection`                          | 加入 `Map` 與 `Set` 集合的定義。                          |
+  | `es2015.generator`<br>`es2015.iterable`      | 加入走訪器與產生器的定義。                                |
+  | `es2015.promise`                             | 加入 `promise` 非同步處理機制的定義。                     |
+  | `es2015.reflect`                             | 加入 `reflection` 功能的定義，可讓我們存取物件屬性和原型。 |
+  | `es2015.symbol`<br>`es2015.symbol.wellknown` | 加入 `symbol` 相關的定義。                                |
+  | `es2016.array.include`                       | 加入 `ES2016` 陣列的 `include()` 方法。                   |
+
+  > 這些其實就是型別宣告檔的檔名。可以在 [官方Github](https://github.com/microsoft/TypeScript/tree/main/lib) 儲存庫找到完整的型別宣告檔列表。將列表中檔案開頭的 `lib.` 和 副檔名 `.d.ts` 去掉，就是要寫在 `lib` 中的名稱。
+
+  使用
   
 ## 5-5 常用的編譯器設定
 ## 5-6 本章總結

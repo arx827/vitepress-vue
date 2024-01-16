@@ -1,5 +1,5 @@
 export const sidebar = {
-  '/docVue/': [
+  '/pages/docVue/': [
     {
       text: 'Vue3',
       items: [
@@ -79,7 +79,7 @@ export const sidebar = {
           collapsible: true,
           collapsed: true,
           items: [
-            { text: '01 你的第一個 JavaScript 應用程式', link: '/docJavaScript/javaScript-1' },
+            { text: '01 你的第一個 JavaScript 應用程式', link: '/pages/docJavaScript/javaScript-1' },
             // { text: '02 認識 TypeScript 及 本書內容', link: '/docTypeScript/typeScript-2' },
             // { text: '03 JavaScript 快速入門(上)', link: '/docTypeScript/typeScript-3' },
             // { text: '04 JavaScript 快速入門(下)', link: '/docTypeScript/typeScript-4' },
@@ -92,14 +92,14 @@ export const sidebar = {
           collapsible: true,
           collapsed: true,
           items: [
-            { text: '07 了解 TypeScript 的靜態型別', link: '/docTypeScript/typeScript-7' },
-            { text: '08 在 TypeScript 使用函式', link: '/docTypeScript/typeScript-8' },
-            { text: '09 在 TypeScript 使用陣列、tuple 與列舉', link: '/docTypeScript/typeScript-9' },
-            { text: '10 在 TypeScript 運用物件', link: '/docTypeScript/typeScript-10' },
-            { text: '11 在 TypeScript 使用類別與介面', link: '/docTypeScript/typeScript-11' },
-            { text: '12 在 TypeScript 使用泛型', link: '/docTypeScript/typeScript-12' },
-            { text: '13 TypeScript 的進階泛型功能', link: '/docTypeScript/typeScript-13' },
-            { text: '14 在 TypeScript 專案中混用 JavaScript', link: '/docTypeScript/typeScript-14' },
+            { text: '07 了解 TypeScript 的靜態型別', link: '/pages/docTypeScript/expert/typeScript-7' },
+            { text: '08 在 TypeScript 使用函式', link: '/pages/docTypeScript/expert/typeScript-8' },
+            { text: '09 在 TypeScript 使用陣列、tuple 與列舉', link: '/pages/docTypeScript/expert/typeScript-9' },
+            { text: '10 在 TypeScript 運用物件', link: '/pages/docTypeScript/expert/typeScript-10' },
+            { text: '11 在 TypeScript 使用類別與介面', link: '/pages/docTypeScript/expert/typeScript-11' },
+            { text: '12 在 TypeScript 使用泛型', link: '/pages/docTypeScript/expert/typeScript-12' },
+            { text: '13 TypeScript 的進階泛型功能', link: '/pages/docTypeScript/expert/typeScript-13' },
+            { text: '14 在 TypeScript 專案中混用 JavaScript', link: '/pages/docTypeScript/expert/typeScript-14' },
           ]
         },
         {
@@ -107,14 +107,14 @@ export const sidebar = {
           collapsible: true,
           collapsed: true,
           items: [
-            { text: '15 打造獨立網路應用程式(上)', link: '/docTypeScript/typeScript-15' },
-            { text: '16 打造獨立網路應用程式(下)', link: '/docTypeScript/typeScript-16' },
-            { text: '17 打造 Angular 網路應用程式(上)', link: '/docTypeScript/typeScript-17' },
-            { text: '18 打造 Angular 網路應用程式(下)', link: '/docTypeScript/typeScript-18' },
-            { text: '19 打造 React 網路應用程式(上)', link: '/docTypeScript/typeScript-19' },
-            { text: '20 打造 React 網路應用程式(下)', link: '/docTypeScript/typeScript-20' },
-            { text: '21 打造 Vue.js 網路應用程式(上)', link: '/docTypeScript/typeScript-21' },
-            { text: '22 打造 Vue.js 網路應用程式(下)', link: '/docTypeScript/typeScript-22' },
+            { text: '15 打造獨立網路應用程式(上)', link: '/pages/docTypeScript/expert/typeScript-15' },
+            { text: '16 打造獨立網路應用程式(下)', link: '/pages/docTypeScript/expert/typeScript-16' },
+            { text: '17 打造 Angular 網路應用程式(上)', link: '/pages/docTypeScript/expert/typeScript-17' },
+            { text: '18 打造 Angular 網路應用程式(下)', link: '/pages/docTypeScript/expert/typeScript-18' },
+            { text: '19 打造 React 網路應用程式(上)', link: '/pages/docTypeScript/expert/typeScript-19' },
+            { text: '20 打造 React 網路應用程式(下)', link: '/pages/docTypeScript/expert/typeScript-20' },
+            { text: '21 打造 Vue.js 網路應用程式(上)', link: '/pages/docTypeScript/expert/typeScript-21' },
+            { text: '22 打造 Vue.js 網路應用程式(下)', link: '/pages/docTypeScript/expert/typeScript-22' },
           ]
         },
         {
@@ -169,21 +169,21 @@ export const sidebar = {
       ]
     }
   ],
-  '/docTypeScript/typeScript': [
+  '/pages/docTypeScript/expert': [
     {
-      text: 'TypeScript',
+      text: '[旗標] TypeScript 邁向專家之路',
       items: [
         {
           text: '第一篇 TypeScript 入門準備',
           collapsible: true,
           collapsed: true,
           items: [
-            { text: '01 你的第一個 TypeScript 應用程式', link: '/docTypeScript/typeScript-1' },
-            { text: '02 認識 TypeScript 及 本書內容', link: '/docTypeScript/typeScript-2' },
-            { text: '03 JavaScript 快速入門(上)', link: '/docTypeScript/typeScript-3' },
-            { text: '04 JavaScript 快速入門(下)', link: '/docTypeScript/typeScript-4' },
-            { text: '05 使用 TypeScript 編譯器', link: '/docTypeScript/typeScript-5' },
-            { text: '06 TypeScript 程式的測試與除錯', link: '/docTypeScript/typeScript-6' },
+            { text: '01 你的第一個 TypeScript 應用程式', link: '/pages/docTypeScript/expert/typeScript-1' },
+            { text: '02 認識 TypeScript 及 本書內容', link: '/pages/docTypeScript/expert/typeScript-2' },
+            { text: '03 JavaScript 快速入門(上)', link: '/pages/docTypeScript/expert/typeScript-3' },
+            { text: '04 JavaScript 快速入門(下)', link: '/pages/docTypeScript/expert/typeScript-4' },
+            { text: '05 使用 TypeScript 編譯器', link: '/pages/docTypeScript/expert/typeScript-5' },
+            { text: '06 TypeScript 程式的測試與除錯', link: '/pages/docTypeScript/expert/typeScript-6' },
           ]
         },
         {
@@ -191,14 +191,14 @@ export const sidebar = {
           collapsible: true,
           collapsed: true,
           items: [
-            { text: '07 了解 TypeScript 的靜態型別', link: '/docTypeScript/typeScript-7' },
-            { text: '08 在 TypeScript 使用函式', link: '/docTypeScript/typeScript-8' },
-            { text: '09 在 TypeScript 使用陣列、tuple 與列舉', link: '/docTypeScript/typeScript-9' },
-            { text: '10 在 TypeScript 運用物件', link: '/docTypeScript/typeScript-10' },
-            { text: '11 在 TypeScript 使用類別與介面', link: '/docTypeScript/typeScript-11' },
-            { text: '12 在 TypeScript 使用泛型', link: '/docTypeScript/typeScript-12' },
-            { text: '13 TypeScript 的進階泛型功能', link: '/docTypeScript/typeScript-13' },
-            { text: '14 在 TypeScript 專案中混用 JavaScript', link: '/docTypeScript/typeScript-14' },
+            { text: '07 了解 TypeScript 的靜態型別', link: '/pages/docTypeScript/expert/typeScript-7' },
+            { text: '08 在 TypeScript 使用函式', link: '/pages/docTypeScript/expert/typeScript-8' },
+            { text: '09 在 TypeScript 使用陣列、tuple 與列舉', link: '/pages/docTypeScript/expert/typeScript-9' },
+            { text: '10 在 TypeScript 運用物件', link: '/pages/docTypeScript/expert/typeScript-10' },
+            { text: '11 在 TypeScript 使用類別與介面', link: '/pages/docTypeScript/expert/typeScript-11' },
+            { text: '12 在 TypeScript 使用泛型', link: '/pages/docTypeScript/expert/typeScript-12' },
+            { text: '13 TypeScript 的進階泛型功能', link: '/pages/docTypeScript/expert/typeScript-13' },
+            { text: '14 在 TypeScript 專案中混用 JavaScript', link: '/pages/docTypeScript/expert/typeScript-14' },
           ]
         },
         {
@@ -206,14 +206,14 @@ export const sidebar = {
           collapsible: true,
           collapsed: true,
           items: [
-            { text: '15 打造獨立網路應用程式(上)', link: '/docTypeScript/typeScript-15' },
-            { text: '16 打造獨立網路應用程式(下)', link: '/docTypeScript/typeScript-16' },
-            { text: '17 打造 Angular 網路應用程式(上)', link: '/docTypeScript/typeScript-17' },
-            { text: '18 打造 Angular 網路應用程式(下)', link: '/docTypeScript/typeScript-18' },
-            { text: '19 打造 React 網路應用程式(上)', link: '/docTypeScript/typeScript-19' },
-            { text: '20 打造 React 網路應用程式(下)', link: '/docTypeScript/typeScript-20' },
-            { text: '21 打造 Vue.js 網路應用程式(上)', link: '/docTypeScript/typeScript-21' },
-            { text: '22 打造 Vue.js 網路應用程式(下)', link: '/docTypeScript/typeScript-22' },
+            { text: '15 打造獨立網路應用程式(上)', link: '/pages/docTypeScript/expert/typeScript-15' },
+            { text: '16 打造獨立網路應用程式(下)', link: '/pages/docTypeScript/expert/typeScript-16' },
+            { text: '17 打造 Angular 網路應用程式(上)', link: '/pages/docTypeScript/expert/typeScript-17' },
+            { text: '18 打造 Angular 網路應用程式(下)', link: '/pages/docTypeScript/expert/typeScript-18' },
+            { text: '19 打造 React 網路應用程式(上)', link: '/pages/docTypeScript/expert/typeScript-19' },
+            { text: '20 打造 React 網路應用程式(下)', link: '/pages/docTypeScript/expert/typeScript-20' },
+            { text: '21 打造 Vue.js 網路應用程式(上)', link: '/pages/docTypeScript/expert/typeScript-21' },
+            { text: '22 打造 Vue.js 網路應用程式(下)', link: '/pages/docTypeScript/expert/typeScript-22' },
           ]
         },
         {
@@ -221,9 +221,44 @@ export const sidebar = {
           collapsible: true,
           collapsed: true,
           items: [
-            { text: '打造 Svelte 網路應用程式', link: '/docTypeScript/typeScript-e-book' },
+            { text: '打造 Svelte 網路應用程式', link: '/pages/docTypeScript/expert/typeScript-e-book' },
           ]
         }
+      ]
+    }
+  ],
+  '/pages/docTypeScript/it': [
+    {
+      text: '[博碩] IT邦 - 讓 TypeScript 成為你全端開發的 ACE !',
+      items: [
+        {
+          text: 'Part I TypeScript 基礎篇',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            { text: '01 TypeScript 的發展與概論', link: '/pages/docTypeScript/it/partI/typeScript-1' },
+            // { text: '02 型別系統概論', link: '/pages/docTypeScript/it/typeScript-2' },
+            // { text: '03 深入型別系統 I 基礎篇', link: '/pages/docTypeScript/it/typeScript-3' },
+            // { text: '04 深入型別系統 II 進階篇', link: '/pages/docTypeScript/it/typeScript-4' },
+            // { text: '05 TypeScript 類別基礎', link: '/pages/docTypeScript/it/typeScript-5' },
+            // { text: '06 TypeScript 介面', link: '/pages/docTypeScript/it/typeScript-6' },
+            // { text: '07 深入型別系統 III 泛用型別', link: '/pages/docTypeScript/it/typeScript-6' },
+            // { text: '08 TypeScript 模組系統', link: '/pages/docTypeScript/it/typeScript-6' },
+          ]
+        },
+        {
+          text: 'Part II TypeScript 應用篇',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            // { text: '01 你的第一個 TypeScript 應用程式', link: '/pages/docTypeScript/it/typeScript-1' },
+            // { text: '02 認識 TypeScript 及 本書內容', link: '/pages/docTypeScript/it/typeScript-2' },
+            // { text: '03 JavaScript 快速入門(上)', link: '/pages/docTypeScript/it/typeScript-3' },
+            // { text: '04 JavaScript 快速入門(下)', link: '/pages/docTypeScript/it/typeScript-4' },
+            // { text: '05 使用 TypeScript 編譯器', link: '/pages/docTypeScript/it/typeScript-5' },
+            // { text: '06 TypeScript 程式的測試與除錯', link: '/pages/docTypeScript/it/typeScript-6' },
+          ]
+        },
       ]
     }
   ],
